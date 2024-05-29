@@ -17,14 +17,7 @@ public class AuthenticationErrorFilter extends HttpFilter {
     protected void doFilter(HttpServletRequest request,
                             HttpServletResponse response,
                             FilterChain chain) throws IOException, ServletException {
-
-        String path = request.getRequestURI();
-
-        if (path.startsWith("/h2-console")) {
-            chain.doFilter(request, response);
-            return;
-        }
-
+        
         try {
             chain.doFilter(request, response);
         } catch (InvalidTokenException | EmptyCookieException | TokenExpiredException e) {
