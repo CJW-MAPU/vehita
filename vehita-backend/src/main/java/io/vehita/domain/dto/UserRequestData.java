@@ -5,7 +5,7 @@ import lombok.*;
 @Getter @Setter @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserHttpRequestData {
+public class UserRequestData {
     private String username;
     private String password;
     private String name;

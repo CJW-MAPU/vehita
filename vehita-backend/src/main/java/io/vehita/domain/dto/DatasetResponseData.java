@@ -6,9 +6,10 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DatasetResponseData {
+    private Long id;
     private String datasetName;
     private String vehicleType;
     private String price;
-    private String Description;
-    private String seller;
+    private String description;
+    private String username;
 }

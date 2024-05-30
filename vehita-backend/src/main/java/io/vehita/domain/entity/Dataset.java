@@ -1,9 +1,10 @@
 package io.vehita.domain.entity;
 
+import io.vehita.domain.dto.DatasetRequestData;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter @Setter @Builder
@@ -18,11 +19,21 @@ public class Dataset {
     private String vehicleType;
     private String price;
     private String description;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     @ManyToOne
     private User user;
 
-    public void enroll(User user) {
+    public Dataset(DatasetRequestData datasetRequestData, User user) {
+        this.datasetName = datasetRequestData.getDatasetName();
+        this.vehicleType = datasetRequestData.getVehicleType();
+        this.price = datasetRequestData.getPrice();
+        this.description = datasetRequestData.getDescription();
+
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+
         this.user = user;
     }
 }

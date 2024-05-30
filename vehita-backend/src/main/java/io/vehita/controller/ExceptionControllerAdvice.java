@@ -29,22 +29,4 @@ public class ExceptionControllerAdvice {
     public ErrorResponseData handleInvalidPasswordException(InvalidPasswordException e) {
         return new ErrorResponseData(e.getMessage());
     }
-
-    @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    @ExceptionHandler(InvalidTokenException.class)
-    public ErrorResponseData handleInvalidTokenException(InvalidTokenException e) {
-        return new ErrorResponseData(e.getMessage());
-    }
-
-    @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    @ExceptionHandler(TokenExpiredException.class)
-    public ErrorResponseData handleTokenExpiredException(TokenExpiredException e) {
-        return new ErrorResponseData(e.getMessage());
-    }
-
-    @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    @ExceptionHandler(EmptyCookieException.class)
-    public ErrorResponseData handleEmptyCookieException(EmptyCookieException e) {
-        return new ErrorResponseData(e.getMessage());
-    }
 }
