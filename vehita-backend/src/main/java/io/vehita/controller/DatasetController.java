@@ -37,7 +37,7 @@ public class DatasetController {
         return ResponseEntity.ok(datasetService.buy(id));
     }
 
-    @GetMapping("/download{id")
+    @GetMapping("/download/{id}")
     public ResponseEntity<DatasetResponseData> download(@PathVariable Long id) {
         return ResponseEntity.ok(datasetService.download(id));
     }
